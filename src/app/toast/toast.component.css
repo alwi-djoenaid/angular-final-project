@@ -1,0 +1,38 @@
+.toast {
+    color: #fff;
+    top: 5%;
+    left: 50%;
+    border-radius: 10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation-name: showToast;
+    animation-duration: 0.5s;
+    z-index: 1100;
+    display: block;
+}
+.toast--error {
+    background-color: #e8564e;
+}
+.toast--success {
+    background-color: #1d7c2a;
+}
+.toast__header {
+    padding: 14px;
+}
+.toast__title {
+    font-size: 14px;
+    text-align: center;
+}
+
+@keyframes showToast {
+    from {
+      left: 50%;
+      top: 0;
+      opacity: 0;
+    }
+    to {
+      left: 50%;
+      top: 5%;
+      opacity: 1;
+    }
+  }

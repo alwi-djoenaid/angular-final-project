@@ -1,0 +1,28 @@
+<div style="margin-top: 60px;">
+    <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/create']">Add New Payment</button>
+    <button type="button" class="btn btn-secondary btn-sm" style="margin-left: 10px;" (click)="logout()">Log out</button>
+    <table class="table table-hover" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th scope="col">Card Owner</th>
+                <th scope="col">Card Number</th>
+                <th scope="col">Expiration Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let payment of paymentRecords">
+            <tr>
+                <td>{{ payment.cardOwnerName }}</td>
+                <td>{{ payment.cardNumber }}</td>
+                <td>{{ payment.expirationDate | date: 'M/yy' }}</td>
+                <td>
+                    <button class="btn btn-sm btn-secondary" [routerLink]="['/details/', payment.id]">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="openDeleteModal(payment)" style="margin-left: 12px;">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="openModal">
+    <app-delete-payment (backButton)="closeModal($event)" [paymentRecord]="selectedPaymentRecord" [paymentId]="selectedPayment"></app-delete-payment>
+</div>

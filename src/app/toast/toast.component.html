@@ -1,0 +1,22 @@
+
+<div class="" *ngIf="isOpen">
+  <div *ngIf="type == 'success'">
+    <div class="toast toast--success">
+      <div class="toast__header">
+        <h1 class="toast__title">
+          {{ toastMessage }}
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type == 'error'">
+    <div class="toast toast--error">
+      <div class="toast__header">
+        <h1 class="toast__title">
+          {{ toastMessage }}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+

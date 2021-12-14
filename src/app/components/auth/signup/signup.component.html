@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div class="auth-wrapper card" style="width: 25rem; padding: 24px;">
+        <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+            <h3 class="h3 mb-3 font-weight-normal text-center">Register New Account</h3>
+
+            <div class="form-group mt-3">
+                <label>Username</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="Username" required>
+                <span style="color: red;" *ngIf="username && username.touched && username.invalid">
+                    Username is required
+                </span>
+            </div>
+            <div class="form-group mt-3">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="Email" required>
+                <span style="color: red;" *ngIf="email && email.touched && email.invalid">
+                    Email is required and input must be email type
+                </span>
+            </div>
+            <div class="form-group mt-3">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                <span style="color: red;" *ngIf="password && password.touched && password.invalid">
+                    Password is required and minimum length is 8 characters
+                </span>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary mt-4" style="width: 100%;">Sign Up</button>
+        </form>
+    </div>
+</div>
+<app-toast [toastMessage]="toastMessage" [isOpen]="openToast" [type]="toastType"></app-toast>

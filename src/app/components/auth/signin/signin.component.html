@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <div class="auth-wrapper card" style="width: 25rem; padding: 24px;">
+        <form class="form-signin" [formGroup]="signInForm" (ngSubmit)="signIn()">
+            <h3 class="h3 mb-3 font-weight-normal text-center">Payment Record App</h3>
+            <div class="form-group mt-3">
+                <label>Email Address</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
+                <span style="color: red;" *ngIf="email && email.touched && email.invalid">
+                    Email is required
+                </span>
+            </div>
+            <div class="form-group mt-3">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                <span style="color: red;" *ngIf="password && password.touched && password.invalid">
+                    Password is required
+                </span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary mt-4" style="width: 100%;">Log in</button>
+            </div>
+        </form>
+        <div class="text-center mt-4">
+            <a href="/signup">Don't have account? Register</a>
+        </div>
+    </div>
+</div>
+<app-toast [toastMessage]="toastMessage" [isOpen]="openToast" [type]="toastType"></app-toast>
+

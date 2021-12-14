@@ -1,0 +1,106 @@
+.overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 1000;
+}
+
+.modal {
+    max-width: 50vw;
+    max-height: 190px;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation-name: showModal;
+    animation-duration: 0.5s;
+    display: block;
+  }
+  .open-modal {
+    display: block;
+  }
+  .modal--toast-error {
+    top: 10%;
+    background-color: #e8564e;
+    color: #fff;
+    animation-name: showToast;
+  }
+  .modal--toast-success {
+    top: 10%;
+    background-color: #1d7c2a;
+    color: #fff;
+    animation-name: showToast;
+  }
+  .modal__header {
+    padding: 24px 24px 12px 24px;
+  }
+  .modal__title {
+    font-size: 24px;
+  }
+  .modal__header--toast {
+    padding: 16px;
+  }
+  .modal__body {
+      padding: 0 24px;
+  }
+  .modal__form-input {
+    margin-top: 12px;
+  }
+  .modal__footer {
+      padding: 24px 0;
+  }
+  .form__label {
+    margin-bottom: 8px;
+  }
+  .form__input {
+    border: 1px solid #ccc;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  }
+  .modal__button {
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .modal__button--submit {
+    background-color: #fcba03;
+  }
+  .modal__button--cancel {
+    background-color: #e8564e;
+  }
+  @keyframes showModal {
+    from {
+      left: 50%;
+      top: 0;
+      opacity: 0;
+    }
+    to {
+      left: 50%;
+      top: 50%;
+      opacity: 1;
+    }
+  }
+  @keyframes showToast {
+    from {
+      left: 50%;
+      top: 0;
+      opacity: 0;
+    }
+    to {
+      left: 50%;
+      top: 7%;
+      opacity: 1;
+    }
+  }
+
+.cancel-btn {
+    margin-left: 12px;
+}

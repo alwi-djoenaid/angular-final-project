@@ -1,0 +1,27 @@
+<div id="overlay" class="overlay">
+    <div class="modal">
+      <div class="modal__header">
+        <h1 class="modal__title">Delete Employee Record</h1>
+      </div>
+      <div class="modal__body">
+        <span>Are you sure you want to delete {{ paymentRecord.cardOwnerName }}'s record?</span>
+        <div class="modal__footer">
+          <button type="submit"
+            class="btn btn-danger"
+            (click)="deletePayment()"
+          >
+            Submit
+          </button>
+          <button id="closeButton" 
+            class="btn btn-secondary cancel-btn"
+            (click)="closeModal()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <app-toast [toastMessage]="toastMessage" [isOpen]="openToast" [type]="toastType"></app-toast>
+  </div>
+
+  
