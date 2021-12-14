@@ -13,14 +13,14 @@
                     </div>
                     <div class="form-section">
                         <label for="">Card Number</label>
-                        <input type="text" class="form-control" formControlName="cardNumber" placeholder="Card Number" required>
+                        <input type="text" (keypress)="numberOnly($event)" class="form-control" formControlName="cardNumber" placeholder="Card Number" required>
                         <span style="color: red;" *ngIf="cardNumber && cardNumber.touched && cardNumber.invalid">
                             Card number is required and must consists 16 numbers
                         </span>
                     </div>
                     <div class="form-section">
                         <label for="">Security Code</label>
-                        <input type="text" class="form-control" formControlName="securityCode" placeholder="Security Code" required>
+                        <input type="text" (keypress)="numberOnly($event)" class="form-control" formControlName="securityCode" placeholder="Security Code" required>
                         <span style="color: red;" *ngIf="securityCode && securityCode.touched && securityCode.invalid">
                             Security code is required and must consists three numbers
                         </span>

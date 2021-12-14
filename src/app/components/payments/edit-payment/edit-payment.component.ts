@@ -63,6 +63,14 @@ export class EditPaymentComponent implements OnInit {
     this.getPaymentRecord();
   }
 
+  numberOnly(event: any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+   if ((charCode > 47 && charCode < 58) || (charCode == 46)){
+      return true;
+    }
+    return false;
+  }
+
   getPaymentRecord(){
     this.paymentService.getPaymentById(this.paymentId).subscribe((res) => {
       this.paymentRecord = res.payment;

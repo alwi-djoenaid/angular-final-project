@@ -49,6 +49,14 @@ export class CreatePaymentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  numberOnly(event: any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+   if ((charCode > 47 && charCode < 58) || (charCode == 46)){
+      return true;
+    }
+    return false;
+  }
+
   createPayment(){
     if(this.paymentForm.valid){
       this.validateDate();
