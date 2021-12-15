@@ -8,7 +8,7 @@
                         <label for="">Name</label>
                         <input type="text" class="form-control" formControlName="cardOwnerName" placeholder="Full Name" required>
                         <span style="color: red;" *ngIf="cardOwnerName && cardOwnerName.touched && cardOwnerName.invalid">
-                            First name is required
+                            Full name is required
                         </span>
                     </div>
                     <div class="form-section">
@@ -29,8 +29,13 @@
                         <label for="">Expiration Date</label>
                         <input type="text" class="form-control" formControlName="expirationDate" placeholder="mm/yy" required>
                         <span style="color: red;" *ngIf="expirationDate && expirationDate.touched && expirationDate.invalid">
-                            Card number is required
+                            Expiration date is required
                         </span>
+                        <div>
+                            <span style="color: red;" *ngIf="expirationDate && expirationDate.touched && month >= 13">
+                                Maximum month is 12
+                            </span>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary" style="margin-top: 24px;">Update</button>
                 </form>

@@ -84,7 +84,7 @@ export class EditPaymentComponent implements OnInit {
   }
 
   updatePayment(){
-    if(this.paymentForm.valid){
+    if(this.paymentForm.valid && this.validateDate()){
       this.validateDate();
       this.paymentService.updatePaymentRecord(this.paymentId, this.paymentForm.value).subscribe((res) => {
         // Tidak ada validasi lebih lanjut karena balikan dari server memang null
@@ -109,9 +109,14 @@ export class EditPaymentComponent implements OnInit {
     this.month = parseInt(splitDate[0]);
     this.year = parseInt(splitDate[1]);
 
-    let convertDate = this.datePipe.transform(new Date(2000 + this.year, this.month - 1, 1), 'YYYY-MM-dd');
-
-    this.paymentForm.get('expirationDate')?.setValue(convertDate);
+    if(this.month > 12){
+      this.paymentForm.get('expirationDate')?.markAsUntouched;
+      return false;
+    } else {
+      let convertDate = this.datePipe.transform(new Date(2000 + this.year, this.month - 1, 1), 'YYYY-MM-dd');
+      this.paymentForm.get('expirationDate')?.setValue(convertDate);
+      return true;
+    }
   }
 
   showToast(msg: string, type: string, timeout: number){
